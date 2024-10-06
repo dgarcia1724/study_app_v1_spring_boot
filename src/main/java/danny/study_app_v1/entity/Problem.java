@@ -1,5 +1,6 @@
 package danny.study_app_v1.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -15,10 +16,11 @@ public class Problem {
     private String tag1;
     private String tag2;
     private String tag3;
-    private String importance;
+    private int importance;
     private LocalDateTime lastAttempted;
     private int confidence;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "list_id")
     private ListEntity list;
@@ -73,11 +75,11 @@ public class Problem {
         this.tag3 = tag3;
     }
 
-    public String getImportance() {
+    public int getImportance() {
         return importance;
     }
 
-    public void setImportance(String importance) {
+    public void setImportance(int importance) {
         this.importance = importance;
     }
 

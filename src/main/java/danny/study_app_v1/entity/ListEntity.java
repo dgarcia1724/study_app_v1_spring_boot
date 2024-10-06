@@ -1,5 +1,6 @@
 package danny.study_app_v1.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -12,6 +13,7 @@ public class ListEntity {
 
     private String name;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "folder_id")
     private Folder folder;
